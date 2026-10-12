@@ -1,0 +1,14 @@
+.git/
+.vscode/
+.env
+.env.*
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+medibotVenv/
+research/
+data/
+*.log

@@ -102,6 +102,22 @@ curl -X POST "http://localhost:8080/get" -d "msg=What information does the medic
 
 The `/get` route streams a Server-Sent Events (SSE) response, so the browser receives incremental answer tokens rather than a single JSON payload.
 
+## Run with Docker
+
+Build the image from the project root:
+
+```powershell
+docker build -t medical-chatbot .
+```
+
+Start the container using the `.env` file created during setup:
+
+```powershell
+docker run --rm -p 8080:8080 --env-file .env medical-chatbot
+```
+
+Open `http://localhost:8080/`. The Pinecone index must already be populated before starting the container.
+
 ## Notes
 
 - The app expects your Pinecone index to contain the medical document embeddings before answering questions.
@@ -111,3 +127,7 @@ The `/get` route streams a Server-Sent Events (SSE) response, so the browser rec
 ## License
 
 This project is licensed under the MIT license. See `LICENSE` for details.
+
+## ECR repo to store Docker image
+
+`441412733074.dkr.ecr.us-east-1.amazonaws.com/medicalchatbot`
